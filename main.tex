@@ -1,0 +1,80 @@
+%template by: lnv
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{charter}
+\usepackage{xspace}
+\usepackage{lipsum}
+\usepackage{xstring}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{wrapfig}
+
+\geometry{left=1.25cm,right=1.25cm,bottom=1.5cm,top=0.75cm}
+\newcommand{\bfu}[1]{{\bf \MakeUppercase{#1}}}
+\newcommand{\nilai}[1]{\IfStrEq{#1}{}{}{{\bf [#1]}}}
+\newcommand{\soal}[2]{\nilai{#1} #2}
+
+%% =================== ISI INFORMASI DI SINI ==============================
+\newcommand{\ujian}{UTS}    %UTS atau UAS
+\newcommand{\tahun}{1598/1662}
+\newcommand{\semester}{NOL} %GANJIL/GENAP
+\newcommand{\kode}{Dodo101}
+\newcommand{\namaMK}{Introduction to Dodo}
+\newcommand{\prodi}{Madagaskar}       %Matematika/Fisika/Informatika
+\newcommand{\sifat}{buka}   %buka/tutup (case sensitive)
+\newcommand{\hari}{KAMIS}
+\newcommand{\tanggal}{1 Januari 1970}
+\newcommand{\waktu}{560640}      %dalam menit
+\newcommand{\dosens}{Dodo} %nama dosen(-dosen)
+\newcommand{\petunjuk}{}    %kosongkan jika tidak digunakan (SPASI == tidak kosong!!)
+
+%% ========================= DOKUMEN UJIAN ====================================
+\begin{document}
+
+%% ========================= HEADER ===========================================
+\begin{minipage}{0.125\textwidth}\includegraphics[scale=0.3]{unparpng}\end{minipage}\begin{minipage}{0.7\textwidth}\begin{center}{\bf \large FAKULTAS TEKNOLOGI INFORMASI DAN SAINS\\UNIVERSITAS KATOLIK PARAHYANGAN\\ UJIAN \IfStrEq{\ujian}{UTS}{TENGAH}{AKHIR} SEMESTER \MakeUppercase{\semester} \\TAHUN AKADEMIK \tahun}\end{center} \end{minipage}
+
+\renewcommand{\arraystretch}{1.25}
+\begin{center}\begin{tabular} {l l p{11.8cm}}\midrule \toprule \bfu{Kode \& Nama Mata Kuliah}	&:& \kode\ -- \namaMK \\\bfu{Program Studi}&:& \prodi \\\bfu{Sifat Ujian} &:& \IfStrEq{\sifat}{buka}{\bfu{buka}}{\bfu{tutup}} \bfu{BUKU}\\\bfu{Hari/Tanggal} &:& \hari/\tanggal \\\bfu{Waktu Pengerjaan} &:& \waktu\ \bfu{MENIT}\\\bfu{Dosen} &:& \dosens\\ \bottomrule \end{tabular}\end{center}
+
+\IfStrEq{\petunjuk}{}{}{\begin{minipage}{0.1\textwidth} {\bf Petunjuk:}\end{minipage} \begin{minipage}{0.85\textwidth} \petunjuk \end{minipage}}
+
+%%==================== TULIS SOAL DI SINI ==================================
+%tambahkan sendiri jika perlu
+%format: \soal{nilai}{soal} --> kosongkan nilai jika tidak diperlukan, SPASI==tidak kosong!!!
+
+\begin{enumerate}
+    \item
+    \soal{10}{%SOAL 1
+        {\scshape Ini soal nomor satu}. \lipsum[1]
+    }
+    \item
+    \soal{10}{%SOAL 2
+        Jawablah pertanyaan-pertanyaan berikut ini
+        \begin{enumerate}[noitemsep,nolistsep]
+            \item Pertanyaan a
+            \item Pertanyaan b
+        \end{enumerate}
+    }
+    \item
+    \soal{10}{%SOAL 3
+        {\scshape Ini soal nomor empat}.
+    }
+    \item
+    \soal{10}{%SOAL 4
+        {\scshape Ini soal nomor iv}.
+    }    
+    \item
+    \soal{}{%SOAL 5
+        {\scshape Ini soal nomor 5}.
+    }    
+\end{enumerate}
+
+\begin{center}
+    { --- --- --- *** --- --- ---}
+\end{center}
+
+\end{document}
