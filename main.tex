@@ -104,7 +104,7 @@
 %% =================== ISI INFORMASI DI SINI ==============================
 \newcommand{\ujian}{UTS}    %UTS atau UAS
 \newcommand{\tahun}{1598/1662}
-\newcommand{\semester}{NOL} %GANJIL/GENAP
+\newcommand{\semester}{GANJIL} %GANJIL/GENAP
 \newcommand{\kode}{Dodo101}
 \newcommand{\namaMK}{Introduction to Dodo}
 \newcommand{\prodi}{Madagaskar}       %Matematika/Fisika/Informatika
@@ -113,13 +113,21 @@
 \newcommand{\tanggal}{1 Januari 1970}
 \newcommand{\waktu}{560640}      %dalam menit
 \newcommand{\dosens}{Dodo} %nama dosen(-dosen)
-\newcommand{\petunjuk}{}    %kosongkan jika tidak digunakan (SPASI == tidak kosong!!)
+\newcommand{\petunjuk}{}    %kosongkan jika tidak digunakan (SPASI == tidak kosong!!). Termasuk apakah boleh pakai kalkulattor atau tidak.
+
+%Dosen Ajar
+%Petunjuk Kerja
 
 %% ========================= DOKUMEN UJIAN ====================================
 \begin{document}
 
 %% ========================= HEADER ===========================================
-\begin{minipage}{0.125\textwidth}\includegraphics[scale=0.3]{images/unparpng}\end{minipage}\begin{minipage}{0.7\textwidth}\begin{center}{\bf \large FAKULTAS TEKNOLOGI INFORMASI DAN SAINS\\UNIVERSITAS KATOLIK PARAHYANGAN\\ UJIAN \IfStrEq{\ujian}{UTS}{TENGAH}{AKHIR} SEMESTER \MakeUppercase{\semester} \\TAHUN AKADEMIK \tahun}\end{center} \end{minipage}
+\begin{minipage}{0.125\textwidth}\includegraphics[scale=0.3]{unparpng}\end{minipage}\begin{minipage}{0.7\textwidth}%\begin{center}
+{\bf \large FAKULTAS SAINS\\
+%UNIVERSITAS KATOLIK PARAHYANGAN\\
+UJIAN \IfStrEq{\ujian}{UAS}{TENGAH}{AKHIR} SEMESTER \MakeUppercase{\semester} \\TAHUN AKADEMIK \tahun}
+%\end{center}
+\end{minipage}
 
 \renewcommand{\arraystretch}{1.25}
 \begin{center}\begin{tabular} {l l p{11.8cm}}\midrule \toprule \bfu{Kode \& Nama Mata Kuliah} &:& \kode\ -- \namaMK \\\bfu{Program Studi}&:& \prodi \\\bfu{Sifat Ujian} &:& \IfStrEq{\sifat}{buka}{\bfu{buka}}{\bfu{tutup}} \bfu{BUKU}\\\bfu{Hari/Tanggal} &:& \hari/\tanggal \\\bfu{Waktu Pengerjaan} &:& \waktu\ \bfu{MENIT}\\\bfu{Dosen} &:& \dosens\\ \bottomrule \end{tabular}\end{center}
