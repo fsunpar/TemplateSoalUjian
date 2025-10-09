@@ -1,88 +1,63 @@
-%template by: lnv
-
 \documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage{geometry}
-\usepackage{graphicx}
-\usepackage{charter}
-\usepackage{xspace}
-\usepackage{lipsum}
-\usepackage{xstring}
-\usepackage{enumitem}
-\usepackage{booktabs}
-\usepackage{wrapfig}
+\usepackage{xstring,soul,booktabs,geometry,enumitem,graphicx,amsmath,amssymb,mathptmx}
 
-\geometry{left=1.25cm,right=1.25cm,bottom=1.5cm,top=0.75cm}
+\geometry{left=1cm,right=1.5cm,bottom=2.5cm,top=1cm}
 \newcommand{\bfu}[1]{{\bf \MakeUppercase{#1}}}
 \newcommand{\nilai}[1]{\IfStrEq{#1}{}{}{{\bf [#1]}}}
 \newcommand{\soal}[2]{\nilai{#1} #2}
-
-%% =================== ISI INFORMASI DI SINI ==============================
+\newcommand{\skor}[1]{\hfill\rlap{\hspace*{1em}\textbf{[#1]}}}
 \newcommand{\ujian}{UTS}    %UTS atau UAS
-\newcommand{\tahun}{1598/1662}
-\newcommand{\semester}{GANJIL} %GANJIL/GENAP
-\newcommand{\kode}{Dodo101}
-\newcommand{\namaMK}{Introduction to Dodo}
-\newcommand{\prodi}{Madagaskar}       %Matematika/Fisika/Informatika
-\newcommand{\sifat}{buka}   %buka/tutup (case sensitive)
-\newcommand{\hari}{KAMIS}
-\newcommand{\tanggal}{1 Januari 1970}
-\newcommand{\waktu}{560640}      %dalam menit
-\newcommand{\dosens}{Dodo} %nama dosen(-dosen)
-\newcommand{\petunjuk}{}    %kosongkan jika tidak digunakan (SPASI == tidak kosong!!). Termasuk apakah boleh pakai kalkulattor atau tidak.
+\newcommand{\tahun}{2024/2025}
+\newcommand{\semester}{GENAP} %GANJIL/GENAP
+\newcommand{\kode}{AMS231141-03}
+\newcommand{\namaMK}{Penulisan dan Penalaran Matematis}
+\newcommand{\prodi}{Matematika}       %Matematika/Fisika/Informatika
+\newcommand{\sifat}{TUTUP BUKU, TANPA KALKULATOR}   %buka/tutup (case sensitive)
+\newcommand{\hari}{RABU}
+\newcommand{\tanggal}{15 Januari 2025}
+\newcommand{\waktu}{120}      %dalam menit
+\newcommand{\dosens}{Jonathan Hoseana, Ph.D.\ dan Robby, M.Si.} %nama dosen(-dosen)
+\newenvironment{tengah}{\begin{minipage}{\linewidth}\centering}{\end{minipage}}
+\makeatletter
+\def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
+\makeatother
+\setlist[enumerate]{font=\bf}
 
-%Dosen Ajar
-%Petunjuk Kerja
 
-%% ========================= DOKUMEN UJIAN ====================================
 \begin{document}
-
-%% ========================= HEADER ===========================================
-\begin{minipage}{0.125\textwidth}\includegraphics[scale=0.3]{unparpng}\end{minipage}\begin{minipage}{0.7\textwidth}%\begin{center}
-{\bf \large FAKULTAS SAINS\\
-%UNIVERSITAS KATOLIK PARAHYANGAN\\
-UJIAN \IfStrEq{\ujian}{UAS}{TENGAH}{AKHIR} SEMESTER \MakeUppercase{\semester} \\TAHUN AKADEMIK \tahun}
-%\end{center}
-\end{minipage}
+\noindent\!\!\!\!\!\!\!\begin{minipage}{0.15\textwidth}\includegraphics[scale=0.35]{LogoBackground.png}\end{minipage}\begin{minipage}{0.6\textwidth}\begin{flushleft}{\bf \large FAKULTAS SAINS\\ UJIAN \IfStrEq{\ujian}{UTS}{TENGAH}{AKHIR} SEMESTER \MakeUppercase{\semester} \\TAHUN AKADEMIK \tahun}\end{flushleft} \end{minipage}\medskip
 
 \renewcommand{\arraystretch}{1.25}
-\begin{center}\begin{tabular} {l l p{11.8cm}}\midrule \toprule \bfu{Kode \& Nama Mata Kuliah}	&:& \kode\ -- \namaMK \\\bfu{Program Studi}&:& \prodi \\\bfu{Sifat Ujian} &:& \IfStrEq{\sifat}{buka}{\bfu{buka}}{\bfu{tutup}} \bfu{BUKU}\\\bfu{Hari/Tanggal} &:& \hari/\tanggal \\\bfu{Waktu Pengerjaan} &:& \waktu\ \bfu{MENIT}\\\bfu{Dosen} &:& \dosens\\ \bottomrule \end{tabular}\end{center}
+\noindent\!\!\!\!\!\!\!\!\!\!\begin{tabular} {l l p{9.9cm}}
+\bfu{Kode / Nama Mata Kuliah}   &:& \kode\ / \namaMK \\[-0.05cm]\bfu{Program Studi}&:& \prodi \\[-0.05cm]\bfu{Sifat Ujian} &:& \bfu{\sifat}\\[-0.05cm]\bfu{Hari / Tanggal} &:& \hari\ / \tanggal \\[-0.05cm]\bfu{Waktu Pengerjaan} &:& \waktu\ \bfu{MENIT}\\[-0.05cm]\bfu{Dosen Ajar} &:& \dosens\\[-0.05cm]
+\bfu{Petunjuk Kerja}: &&\\[-0.15cm]\end{tabular}
 
-\IfStrEq{\petunjuk}{}{}{\begin{minipage}{0.1\textwidth} {\bf Petunjuk:}\end{minipage} \begin{minipage}{0.85\textwidth} \petunjuk \end{minipage}}
+\begin{itemize}[itemsep=0pt,leftmargin=0.5cm]
+    \item \sloppy Ujian ini terdiri dari \textbf{tujuh soal}. Skor setiap soal tercantum di dalam kurung siku.
+    \item Gunakan \textbf{pulpen}, bukan pensil.
+    \item Anda \textbf{diperbolehkan} untuk menjawab secara tidak berurutan.
+\end{itemize}
 
-%%==================== TULIS SOAL DI SINI ==================================
-%tambahkan sendiri jika perlu
-%format: \soal{nilai}{soal} --> kosongkan nilai jika tidak diperlukan, SPASI==tidak kosong!!!
+\noindent\vhrulefill{0.8pt}\smallskip
 
-\begin{enumerate}
-    \item
-    \soal{10}{%SOAL 1
-        {\scshape Ini soal nomor satu}. \lipsum[1]
-    }
-    \item
-    \soal{10}{%SOAL 2
-        Jawablah pertanyaan-pertanyaan berikut ini
-        \begin{enumerate}[noitemsep,nolistsep]
-            \item Pertanyaan a
-            \item Pertanyaan b
-        \end{enumerate}
-    }
-    \item
-    \soal{10}{%SOAL 3
-        {\scshape Ini soal nomor empat}.
-    }
-    \item
-    \soal{10}{%SOAL 4
-        {\scshape Ini soal nomor iv}.
-    }    
-    \item
-    \soal{}{%SOAL 5
-        {\scshape Ini soal nomor 5}.
-    }    
+\begin{enumerate}[itemsep=8pt,leftmargin=0.5cm]
+    \item Ada berapa banyak bilangan asli tiga digit yang bernilai sama dengan 34 kali hasil penjumlahan digit-digitnya?\skor{15} %4
+    
+    \item Misalkan $n$ suatu bilangan asli. Hitunglah hasil penjumlahan
+    \begin{flushleft}
+        \begin{tengah}
+            $1\cdot 2^{-1}+2\cdot 2^{-2}+3\cdot 2^{-3}+\cdots+n\cdot 2^{-n}$.
+        \end{tengah}\skor{15}
+    \end{flushleft}
+    
+    \item[\textbf{3.}] ......................
 \end{enumerate}
+\medskip
+
+\noindent\vhrulefill{0.8pt}\medskip
 
 \begin{center}
-    { --- --- --- *** --- --- ---}
+\textbf{Selamat mengerjakan}
 \end{center}
 
 \end{document}
