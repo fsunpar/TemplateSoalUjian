@@ -1,61 +1,394 @@
+%============================================================
+%============================================================
+%1. ISILAH INFORMASI BERIKUT INI.
+\newcommand{\ujian}{UTS} %UTS / UAS
+\newcommand{\semester}{GENAP} %GENAP / GANJIL / PENDEK
+\newcommand{\TA}{2025/2026} %TAHUN AKADEMIK
+\newcommand{\fakultas}{Sains}
+\newcommand{\prodi}{Matematika} %Matematika / Fisika / Informatika
+\newcommand{\kode}{AMS232494-03}
+\newcommand{\namaMK}{Sistem Dinamik Diskret}
+\newcommand{\tanggal}{13 April 2026} %tanggal
+\newcommand{\waktu}{120} %dalam menit
+\newcommand{\tipeujian}{Tertulis} %Tertulis / Lisan / Take Home Test
+\newcommand{\sifat}{Closed Book} %Closed Book / Open Book
+\newcommand{\tipesoal}{Uraian} %Uraian / Pilihan Ganda / lainnya
+%============================================================
+%============================================================
+%2. ISILAH NAMA-NAMA DOSEN KOORDINATOR DAN PENGAJAR.
+\newcommand{\dosenkoordinator}{Jonathan Hoseana, Ph.D.}
+\newcommand{\dosenpengajarsatu}{Jonathan Hoseana, Ph.D.}
+\newcommand{\dosenpengajardua}{}%kosongkan jika tidak ada
+\newcommand{\dosenpengajartiga}{}%kosongkan jika tidak ada
+\newcommand{\dosenpengajarempat}{}%kosongkan jika tidak ada
+\newcommand{\dosenpengajarlima}{}%kosongkan jika tidak ada
+\newcommand{\dosenpengajarenam}{}%kosongkan jika tidak ada
+%============================================================
+%============================================================
+%3. ISILAH PETUNJUK PENGERJAAN UJIAN.
+\newcommand{\petunjuksatu}{Tidak diperbolehkan menggunakan kalkulator.}
+\newcommand{\petunjukdua}{}%kosongkan jika tidak ada
+\newcommand{\petunjuktiga}{}%kosongkan jika tidak ada
+\newcommand{\petunjukempat}{}%kosongkan jika tidak ada
+\newcommand{\petunjuklima}{}%kosongkan jika tidak ada
+\newcommand{\petunjukenam}{}%kosongkan jika tidak ada
+\newcommand{\petunjuktujuh}{}%kosongkan jika tidak ada
+\newcommand{\petunjukdelapan}{}%kosongkan jika tidak ada
+\newcommand{\petunjuksembilan}{}%kosongkan jika tidak ada
+\newcommand{\petunjuksepuluh}{}%kosongkan jika tidak ada
+%============================================================
+%============================================================
+%4. TENTUKAN NOMOR-NOMOR CPL PRODI YANG DIUJIKAN DALAM UJIAN INI.
+\newcommand{\CPLsatu}{0}%1 jika dipakai, 0 jika tidak
+\newcommand{\CPLdua}{1}%1 jika dipakai, 0 jika tidak
+\newcommand{\CPLtiga}{1}%1 jika dipakai, 0 jika tidak
+\newcommand{\CPLempat}{1}%1 jika dipakai, 0 jika tidak
+\newcommand{\CPLlima}{0}%1 jika dipakai, 0 jika tidak
+\newcommand{\CPLenam}{0}%1 jika dipakai, 0 jika tidak
+\newcommand{\CPLtujuh}{0}%1 jika dipakai, 0 jika tidak
+\newcommand{\CPLdelapan}{0}%1 jika dipakai, 0 jika tidak
+\newcommand{\CPLsembilan}{0}%1 jika dipakai, 0 jika tidak
+%============================================================
+%============================================================
+%5. ISIKAN CPMK-CPMK YANG DIUJIKAN DALAM UJIAN INI.
+\newcommand{\CPMKsatu}{Mahasiswa mampu mengasihi tanpa batas.}%kosongkan jika tidak diujikan
+\newcommand{\CPMKdua}{Mahasiswa mensyukuri kehidupan.}%kosongkan jika tidak diujikan
+\newcommand{\CPMKtiga}{}%kosongkan jika tidak diujikan
+\newcommand{\CPMKempat}{}%kosongkan jika tidak diujikan
+\newcommand{\CPMKlima}{}%kosongkan jika tidak diujikan
+\newcommand{\CPMKenam}{}%kosongkan jika tidak diujikan
+\newcommand{\CPMKtujuh}{}%kosongkan jika tidak diujikan
+\newcommand{\CPMKdelapan}{}%kosongkan jika tidak diujikan
+\newcommand{\CPMKsembilan}{}%kosongkan jika tidak diujikan
+\newcommand{\CPMKsepuluh}{}%kosongkan jika tidak diujikan
+%============================================================
+%============================================================
+%BAGIAN INI TIDAK UNTUK DIEDIT; SILAKAN SCROLL KE BAWAH.
 \documentclass[11pt,a4paper]{article}
-\usepackage{xstring,soul,booktabs,geometry,enumitem,graphicx,amsmath,amssymb,mathptmx}
+\usepackage{graphicx,mathptmx,enumitem,xstring,amsmath,amssymb}
+\usepackage[a4paper,margin=15mm]{geometry}
+\setlist[enumerate]{font=\bf,itemsep=0pt}
+\setlist[enumerate,1]{label={(\alph*)}}
+\setlist[enumerate,2]{label={(\roman*)}}
+\newcommand{\dosenpengajar}{}
+\IfStrEq{\dosenpengajardua}{}{\renewcommand{\dosenpengajar}{\dosenpengajarsatu}}{
+\IfStrEq{\dosenpengajartiga}{}{\renewcommand{\dosenpengajar}{\smallskip
+\begin{enumerate}[leftmargin=0.5cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \dosenpengajarsatu
+\item \dosenpengajardua\smallskip
+\end{enumerate}}}{
+\IfStrEq{\dosenpengajarempat}{}{\renewcommand{\dosenpengajar}{\smallskip
+\begin{enumerate}[leftmargin=0.5cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \dosenpengajarsatu
+\item \dosenpengajardua
+\item \dosenpengajartiga\smallskip
+\end{enumerate}}}{
+\IfStrEq{\dosenpengajarlima}{}{\renewcommand{\dosenpengajar}{\smallskip
+\begin{enumerate}[leftmargin=0.5cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \dosenpengajarsatu
+\item \dosenpengajardua
+\item \dosenpengajartiga
+\item \dosenpengajarempat\smallskip
+\end{enumerate}}}{
+\IfStrEq{\dosenpengajarenam}{}{\renewcommand{\dosenpengajar}{\smallskip
+\begin{enumerate}[leftmargin=0.5cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \dosenpengajarsatu
+\item \dosenpengajardua
+\item \dosenpengajartiga
+\item \dosenpengajarempat
+\item \dosenpengajarlima\smallskip
+\end{enumerate}}}{\renewcommand{\dosenpengajar}{\smallskip
+\begin{enumerate}[leftmargin=0.5cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \dosenpengajarsatu
+\item \dosenpengajardua
+\item \dosenpengajartiga
+\item \dosenpengajarempat
+\item \dosenpengajarlima
+\item \dosenpengajarenam\smallskip
+\end{enumerate}}}}}}}
+\newcommand{\petunjuk}{}
+\IfStrEq{\petunjukdua}{}{\renewcommand{\petunjuk}{\petunjuksatu}}{
+\IfStrEq{\petunjuktiga}{}{\renewcommand{\petunjuk}{\smallskip
+\begin{enumerate}[leftmargin=0.5cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \petunjuksatu
+\item \petunjukdua\smallskip
+\end{enumerate}}}{
+\IfStrEq{\petunjukempat}{}{\renewcommand{\petunjuk}{\smallskip
+\begin{enumerate}[leftmargin=0.5cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \petunjuksatu
+\item \petunjukdua
+\item \petunjuktiga\smallskip
+\end{enumerate}}}{
+\IfStrEq{\petunjuklima}{}{\renewcommand{\petunjuk}{\smallskip
+\begin{enumerate}[leftmargin=0.5cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \petunjuksatu
+\item \petunjukdua
+\item \petunjuktiga
+\item \petunjukempat\smallskip
+\end{enumerate}}}{
+\IfStrEq{\petunjukenam}{}{\renewcommand{\petunjuk}{\smallskip
+\begin{enumerate}[leftmargin=0.5cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \petunjuksatu
+\item \petunjukdua
+\item \petunjuktiga
+\item \petunjukempat
+\item \petunjuklima\smallskip
+\end{enumerate}}}{        
+\IfStrEq{\petunjuktujuh}{}{\renewcommand{\petunjuk}{\smallskip
+\begin{enumerate}[leftmargin=0.5cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \petunjuksatu
+\item \petunjukdua
+\item \petunjuktiga
+\item \petunjukempat
+\item \petunjuklima
+\item \petunjukenam\smallskip
+\end{enumerate}}}{
+\IfStrEq{\petunjukdelapan}{}{\renewcommand{\petunjuk}{\smallskip
+\begin{enumerate}[leftmargin=0.5cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \petunjuksatu
+\item \petunjukdua
+\item \petunjuktiga
+\item \petunjukempat
+\item \petunjuklima
+\item \petunjukenam
+\item \petunjuktujuh\smallskip
+\end{enumerate}}}{
+\IfStrEq{\petunjuksembilan}{}{\renewcommand{\petunjuk}{\smallskip
+\begin{enumerate}[leftmargin=0.5cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \petunjuksatu
+\item \petunjukdua
+\item \petunjuktiga
+\item \petunjukempat
+\item \petunjuklima
+\item \petunjukenam
+\item \petunjuktujuh
+\item \petunjukdelapan\smallskip
+\end{enumerate}}}{\IfStrEq{\petunjuksepuluh}{}{\renewcommand{\petunjuk}{\smallskip
+\begin{enumerate}[leftmargin=0.5cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \petunjuksatu
+\item \petunjukdua
+\item \petunjuktiga
+\item \petunjukempat
+\item \petunjuklima
+\item \petunjukenam
+\item \petunjuktujuh
+\item \petunjukdelapan
+\item \petunjuksembilan\smallskip
+\end{enumerate}}}{\renewcommand{\petunjuk}{\smallskip
+\begin{enumerate}[leftmargin=0.7cm,itemsep=-3pt,label=\arabic*.,font=\normalfont]
+\item \petunjuksatu
+\item \petunjukdua
+\item \petunjuktiga
+\item \petunjukempat
+\item \petunjuklima
+\item \petunjukenam
+\item \petunjuktujuh
+\item \petunjukdelapan
+\item \petunjuksembilan
+\item \petunjuksepuluh\smallskip
+\end{enumerate}}}}}}}}}}}
+\newcommand{\soal}[5]{
+\noindent
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{\textbf{CPL dan CPMK yang diukur}} & \textbf{Bobot} \\
+\hline
+\begin{minipage}{0.425\linewidth}\centering #2\end{minipage} & \begin{minipage}{0.425\linewidth}\centering #3\end{minipage} & #4 \\
+\hline
+\multicolumn{3}{|c|}{\begin{minipage}{0.975\linewidth}\bigskip
+\textbf{Soal no.\ #1:}
 
-\geometry{left=1cm,right=1.5cm,bottom=2.5cm,top=1cm}
-\newcommand{\bfu}[1]{{\bf \MakeUppercase{#1}}}
-\newcommand{\nilai}[1]{\IfStrEq{#1}{}{}{{\bf [#1]}}}
-\newcommand{\soal}[2]{\nilai{#1} #2}
-\newcommand{\skor}[1]{\hfill\rlap{\hspace*{1em}\textbf{[#1]}}}
-\newcommand{\ujian}{UTS}    %UTS atau UAS
-\newcommand{\tahun}{2024/2025}
-\newcommand{\semester}{GENAP} %GANJIL/GENAP
-\newcommand{\kode}{AMS231141-03}
-\newcommand{\namaMK}{Penulisan dan Penalaran Matematis}
-\newcommand{\prodi}{Matematika}       %Matematika/Fisika/Informatika
-\newcommand{\sifat}{TUTUP BUKU, TANPA KALKULATOR}   %buka/tutup (case sensitive)
-\newcommand{\hari}{RABU}
-\newcommand{\tanggal}{15 Januari 2025}
-\newcommand{\waktu}{120}      %dalam menit
-\newcommand{\dosens}{Jonathan Hoseana, Ph.D.\ dan Robby, M.Si.} %nama dosen(-dosen)
-\newenvironment{tengah}{\begin{minipage}{\linewidth}\centering}{\end{minipage}}
-\makeatletter
-\def\vhrulefill#1{\leavevmode\leaders\hrule\@height#1\hfill \kern\z@}
-\makeatother
-\setlist[enumerate]{font=\bf}
-
-
+#5\smallskip
+\end{minipage}}\\
+\hline
+\end{tabular}\medskip}
+\pagestyle{empty}
 \begin{document}
-\noindent\!\!\!\!\!\!\!\begin{minipage}{0.15\textwidth}\includegraphics[scale=0.35]{LogoBackground.png}\end{minipage}\begin{minipage}{0.6\textwidth}\begin{flushleft}{\bf \large FAKULTAS SAINS\\ UJIAN \IfStrEq{\ujian}{UTS}{TENGAH}{AKHIR} SEMESTER \MakeUppercase{\semester} \\TAHUN AKADEMIK \tahun}\end{flushleft} \end{minipage}\medskip
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\tabcolsep}{4pt}
+\noindent
+\includegraphics[width=\linewidth]{KOP-FS.jpg} 
+\begin{center}
+\Large\textbf{SOAL \ujian}\\[1.15mm]
+\Large\textbf{SEMESTER \semester}\\[1.15mm]
+\Large\textbf{TAHUN AKADEMIK \TA}
+\end{center}
+\vspace{3mm}
+\noindent
+\begin{tabular}{ll}
+Fakultas & : Sains\\[1mm]
+Program Studi & : \prodi\\
+\end{tabular}\\[2mm]
+\noindent
+\begin{tabular}{|c|}
+\hline
+\begin{minipage}{0.975\linewidth}\medskip
+Nama Mahasiswa \,\, \rule{6.75cm}{0.4pt} \,\,  NPM \,\, \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+\hline
+\phantom{aa}& \phantom{aa}& \phantom{aa}& \phantom{aa}& \phantom{aa}& \phantom{aa}& \phantom{aa}& \phantom{aa}& \phantom{aa}& \phantom{aa}\\
+\hline
+\end{tabular}\\[2mm]
+Kelas \,\,\,\, \rule{1cm}{0.4pt}\,\,\,\,\,\,\,\, No.\ Ujian \,\, \begin{tabular}{|c|c|c|}
+\hline
+\phantom{aa}&\phantom{aa}&\phantom{aa}\\
+\hline
+\end{tabular} \,\,\,\,\,\,\,\, Kode Soal \,\,\,\, A / B / C / D / E / 1 / 2 / 3 / 4 (wajib dilingkari)\smallskip
+\end{minipage}\\
+\hline
+\end{tabular}\\[3mm]
+\noindent
+\begin{tabular}{|lll|lll|}
+\hline
+\multicolumn{6}{|c|}{\textbf{\large LEMBAR SOAL}}\\
+\hline
+\begin{minipage}{0.163\linewidth}
+Nama Evaluasi
+\end{minipage} & \begin{minipage}{0.001\linewidth}
+:
+\end{minipage} & \begin{minipage}{0.471\linewidth}
+\ujian
+\end{minipage} & \begin{minipage}{0.11\linewidth}
+Tipe Ujian
+\end{minipage} &  \begin{minipage}{0.001\linewidth}
+:
+\end{minipage} & \begin{minipage}{0.15\linewidth}
+\tipeujian
+\end{minipage} \\
+\hline
+\begin{minipage}{0.163\linewidth}
+Kode/Nama MK
+\end{minipage}  & \begin{minipage}{0.001\linewidth}
+:
+\end{minipage} & \begin{minipage}{0.471\linewidth}
+\kode\ / \namaMK
+\end{minipage} & \begin{minipage}{0.11\linewidth}
+Tipe Soal
+\end{minipage} & \begin{minipage}{0.001\linewidth}
+:
+\end{minipage} & \begin{minipage}{0.15\linewidth}
+\tipesoal
+\end{minipage}\\
+\hline
+\begin{minipage}{0.163\linewidth}
+Tanggal Evaluasi
+\end{minipage} & \begin{minipage}{0.001\linewidth}
+:
+\end{minipage} & \begin{minipage}{0.471\linewidth}
+\tanggal
+\end{minipage} & \begin{minipage}{0.11\linewidth}
+Sifat Soal
+\end{minipage} & \begin{minipage}{0.001\linewidth}
+:
+\end{minipage} & \begin{minipage}{0.15\linewidth}
+\sifat
+\end{minipage}\\
+\hline
+\begin{minipage}{0.163\linewidth}
+Dosen Koordinator
+\end{minipage} & \begin{minipage}{0.001\linewidth}
+:
+\end{minipage} & \begin{minipage}{0.471\linewidth}
+\dosenkoordinator
+\end{minipage} & \begin{minipage}{0.11\linewidth}
+Waktu Ujian
+\end{minipage} & \begin{minipage}{0.001\linewidth}
+:
+\end{minipage} & \begin{minipage}{0.15\linewidth}
+\waktu\ menit
+\end{minipage} \\
+\hline
+\begin{minipage}{0.163\linewidth}
+Dosen Pengajar
+\end{minipage} & \begin{minipage}{0.001\linewidth}
+:
+\end{minipage} & \begin{minipage}{0.471\linewidth}
+\dosenpengajar
+\end{minipage} & & &\\
+\hline
+\end{tabular}\\[3mm]
+\noindent
+\begin{tabular}{|c|c|}
+\hline
+\begin{minipage}{0.1\linewidth}\flushleft\smallskip
+Petunjuk Pengerjaan\smallskip
+\end{minipage} & \begin{minipage}{0.8585\linewidth}
+\petunjuk
+\end{minipage}\\
+\hline
+\end{tabular}\\[3mm]
+\noindent
+\begin{tabular}{|c|c|}
+\hline
+\begin{minipage}{0.2\linewidth}\flushleft\smallskip
+Capaian Pembelajaran Lulusan (CPL)\smallskip
+\end{minipage} & \begin{minipage}{0.7585\linewidth}\medskip
+\IfStrEq{\prodi}{Matematika}{\IfStrEq{\CPLsatu}{1}{CPL-01:\,\,Mahasiswa mampu mengomunikasikan gagasan-gagasan secara sistematis dan kreatif serta berkinerja baik secara mandiri maupun interdisiplin.\\}{}
+\IfStrEq{\CPLdua}{1}{CPL-02:\,\,Mahasiswa mampu mengevaluasi karya ilmu pengetahuan dan seni secara interdisipliner berdasarkan kebenaran (verum), kebaikan (bonum), dan keindahan (pulchrum).\\}{}
+\IfStrEq{\CPLtiga}{1}{CPL-03:\,\,Mahasiswa mampu mengamalkan spiritualitas dan nilai dasar Universitas Katolik Parahyangan (SINDU), iman kepada Tuhan, dan kesetiaan pada Pancasila.\\}{}
+\IfStrEq{\CPLempat}{1}{CPL-04:\,\,Bersikap kritis dan mandiri, cakap dalam mengambil keputusan di bidang keahliannya, serta mampu mengkaji pengembangan ilmu dalam bidang keahliannya dan mendokumentasikannya dalam bentuk karya ilmiah.\\}{}
+\IfStrEq{\CPLlima}{1}{CPL-05:\,\,Mampu mengembangkan jaringan kerja, bertanggung jawab atas pencapaian hasil kerja kelompok, dan melakukan proses evaluasi diri terhadap kelompok.\\}{}
+\IfStrEq{\CPLenam}{1}{CPL-06:\,\,Memiliki keterampilan dalam komunikasi, pemecahan masalah, pengambilan keputusan, dan penggunaan teknologi dengan berbekal pengalaman bermatematika.\\}{}
+\IfStrEq{\CPLtujuh}{1}{CPL-07:\,\,Menguasai konsep teoretis matematika meliputi logika matematis, matematika diskret, aljabar, analisis dan geometri, serta teori peluang dan statistika.\\}{}
+\IfStrEq{\CPLdelapan}{1}{CPL-08:\,\,Menguasai prinsip-prinsip pemodelan matematis, program linear, persamaan diferensial, dan metode numerik.\\}{}
+\IfStrEq{\CPLsembilan}{1}{CPL-09:\,\,Memahami, mengaplikasikan, menganalisis, mengevaluasi, dan mengkreasikan ilmu pengetahuan, teknologi, dan seni sesuai dengan profesi dan pekerjaannya dalam bidang ilmunya masing-masing:\,\,aktuaria, analitika data, optimasi dan dinamika, atau matematika murni dan pengajaran.\\}{}}{\IfStrEq{\prodi}{Fisika}{
+\IfStrEq{\CPLsatu}{1}{CPL-01:\,\,Mampu mengamalkan spiritualitas dan nilai dasar Universitas Katolik Parahyangan (SINDU), iman kepada Tuhan, dan kesetiaan pada Pancasila.\\}{}
+\IfStrEq{\CPLdua}{1}{CPL-02:\,\,Mampu mengomunikasikan gagasan-gagasan secara sistematis dan kreatif serta berkinerja baik secara mandiri maupun interdisplin.\\}{}
+\IfStrEq{\CPLtiga}{1}{CPL-03:\,\,Mampu mengevaluasi karya ilmu pengetahuan dan seni secara interdisipliner berdasarkan kebenaran (verum), kebaikan (bonum), dan keindahan (pulchrum).\\}{}
+\IfStrEq{\CPLempat}{1}{CPL-04:\,\,Mampu menganalisis gejala dan masalah fisis melalui data hasil observasi, membuat model matematis atau fisis yang tepat, mengevaluasi alternatif solusi, dan mengambil keputusan berdasarkan hasil analisis data.\\}{}
+\IfStrEq{\CPLlima}{1}{CPL-05:\,\,Mampu mengelola pembelajaran sepanjang hayat dengan menunjukkan kemampuan kerja mandiri maupun dalam bagian dari tim.\\}{}
+\IfStrEq{\CPLenam}{1}{CPL-06:\,\,Mampu menerapkan perilaku fisis dalam bidang fisika, teknologi dan dapat mendokumentasikan serta mengkomunikasikan hasilnya secara ilmiah.\\}{}
+\IfStrEq{\CPLtujuh}{1}{CPL-07:\,\,Mampu menguasai konsep-konsep teoritis dan prinsip-prinsip fisika klasik dan modern serta bidang sains lainnya, serta metode-metode matematika, komputasi, dan instrumentasi yang diperlukan dalam bidang tersebut.\\}{}
+\IfStrEq{\CPLdelapan}{1}{CPL-08:\,\,Mampu menguasai pengetahuan fisika dan teknologi dan menerapkannya dalam berbagai permasalahan nyata.\\}{}
+}{
+\IfStrEq{\CPLsatu}{1}{CPL-01:\,\,Mahasiswa mampu menguasai konsep dasar informatika dan bidang ilmu terkait lainnya, dan mampu mengaplikasikannya dalam penyelesaian masalah.\\}{}
+\IfStrEq{\CPLdua}{1}{CPL-02:\,\,Mahasiswa mampu melakukan analisis masalah dengan menerapkan konsep dasar yang sudah dikuasainya, dan mengambil keputusan yang tepat berdasarkan hasil analisis tersebut, untuk menyelesaikan masalah.\\}{}
+\IfStrEq{\CPLtiga}{1}{CPL-03:\,\,Mahasiswa mampu menguasai berbagai konsep terkait desain penyelesaian masalah, khususnya desain perangkat lunak dan dapat menerapkan desain yang tepat untuk masalah yang tepat, serta mengimplementasikan desain tersebut dalam bentuk perangkat lunak/bentuk lain yang sesuai.\\}{}
+\IfStrEq{\CPLempat}{1}{CPL-04:\,\,Mahasiswa mampu membangun perangkat lunak untuk menyelesaikan masalah skala kecil sampai besar, dengan menerapkan/mengadopsi konsep yang sesuai.\\}{}
+\IfStrEq{\CPLlima}{1}{CPL-05:\,\,Mahasiswa mampu mempelajari model, teknik, teknologi terkini, dan bidang ilmu spesifik lainnya yang relevan, serta memahami aplikasinya dan memanfaatkannya untuk menyelesaikan masalah.\\}{}
+\IfStrEq{\CPLenam}{1}{CPL-06:\,\,Mahasiswa mampu mengomunikasikan ide/gagasan/pemikiran di bidang ilmunya, baik lisan maupun tertulis.\\}{}
+\IfStrEq{\CPLtujuh}{1}{CPL-07:\,\,Mahasiswa mempunyai sikap dan etika profesional yang tinggi berdasarkan ketakwaan kepada Tuhan YME, moralitas, dan kecintaan terhadap tanah air.\\}{}
+\IfStrEq{\CPLdelapan}{1}{CPL-08:\,\,Mahasiswa mampu bekerja sama dalam tim, dengan berperan sesuai fungsinya, baik sebagai pemimpin maupun anggota.\\}{}
+}}
+\vspace*{-0.25cm}
+\end{minipage}\\
+\hline
+\end{tabular}\\[3mm]
+\noindent
+\begin{tabular}{|c|c|}
+\hline
+\begin{minipage}{0.2\linewidth}\flushleft\smallskip
+Capaian Pembelajaran Mata Kuliah (CPMK)\smallskip
+\end{minipage} & \begin{minipage}{0.7585\linewidth}\medskip
+\IfStrEq{\CPMKsatu}{}{}{CPMK-01:\,\,\CPMKsatu\\}
+\IfStrEq{\CPMKdua}{}{}{CPMK-02:\,\,\CPMKdua\\}
+\IfStrEq{\CPMKtiga}{}{}{CPMK-03:\,\,\CPMKtiga\\}
+\IfStrEq{\CPMKempat}{}{}{CPMK-04:\,\,\CPMKempat\\}
+\IfStrEq{\CPMKlima}{}{}{CPMK-05:\,\,\CPMKlima\\}
+\IfStrEq{\CPMKenam}{}{}{CPMK-06:\,\,\CPMKenam\\}
+\IfStrEq{\CPMKtujuh}{}{}{CPMK-07:\,\,\CPMKtujuh\\}
+\IfStrEq{\CPMKdelapan}{}{}{CPMK-08:\,\,\CPMKdelapan\\}
+\IfStrEq{\CPMKsembilan}{}{}{CPMK-09:\,\,\CPMKsembilan\\}
+\IfStrEq{\CPMKsepuluh}{}{}{CPMK-10:\,\,\CPMKsepuluh\\}
+\vspace*{-0.25cm}
+\end{minipage}\\
+\hline
+\end{tabular}\\[3mm]
+%============================================================
+%============================================================
+%6. KETIKKAN SOAL-SOAL DI SINI DENGAN FORMAT:
+%\soal{<nomor>}{<nomor CPL>}{<nomor CPMK>}{<bobot>}{<soal>}
+%KOSONGKAN SATU BARIS DI ANTARA SETIAP DUA SOAL BERURUTAN.
+\soal{1}{CPL-01}{CPMK-02}{20\%}{aaaaaaa}\medskip
 
-\renewcommand{\arraystretch}{1.25}
-\noindent\!\!\!\!\!\!\!\!\!\!\begin{tabular} {l l p{9.9cm}}
-\bfu{Kode / Nama Mata Kuliah}   &:& \kode\ / \namaMK \\[-0.05cm]\bfu{Program Studi}&:& \prodi \\[-0.05cm]\bfu{Sifat Ujian} &:& \bfu{\sifat}\\[-0.05cm]\bfu{Hari / Tanggal} &:& \hari\ / \tanggal \\[-0.05cm]\bfu{Waktu Pengerjaan} &:& \waktu\ \bfu{MENIT}\\[-0.05cm]\bfu{Dosen Ajar} &:& \dosens\\[-0.05cm]
-\bfu{Petunjuk Kerja}: &&\\[-0.15cm]\end{tabular}
+\soal{2}{CPL-01}{CPMK-02}{20\%}{aaaaaaa}\medskip
 
-\begin{itemize}[itemsep=0pt,leftmargin=0.5cm]
-    \item \sloppy Ujian ini terdiri dari \textbf{tujuh soal}. Skor setiap soal tercantum di dalam kurung siku.
-    \item Gunakan \textbf{pulpen}, bukan pensil.
-    \item Anda \textbf{diperbolehkan} untuk menjawab secara tidak berurutan.
-\end{itemize}
+\soal{3}{CPL-01}{CPMK-02}{20\%}{aaaaaaa}\medskip
 
-\noindent\vhrulefill{0.8pt}\smallskip
+\soal{4}{CPL-01}{CPMK-02}{20\%}{aaaaaaa}\medskip
 
-\begin{enumerate}[itemsep=8pt,leftmargin=0.5cm]
-    \item Ada berapa banyak bilangan asli tiga digit yang bernilai sama dengan 34 kali hasil penjumlahan digit-digitnya?\skor{15} %4
-    
-    \item Misalkan $n$ suatu bilangan asli. Hitunglah hasil penjumlahan
-    \begin{flushleft}
-        \begin{tengah}
-            $1\cdot 2^{-1}+2\cdot 2^{-2}+3\cdot 2^{-3}+\cdots+n\cdot 2^{-n}$.
-        \end{tengah}\skor{15}
-    \end{flushleft}
-    
-    \item[\textbf{3.}] ......................
-\end{enumerate}
-\medskip
-
-\noindent\vhrulefill{0.8pt}\medskip
-
+\soal{5}{CPL-01}{CPMK-02}{20\%}{aaaaaaa}\bigskip
+%============================================================
+%============================================================
 \begin{center}
 \textbf{Selamat mengerjakan}
 \end{center}
