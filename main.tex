@@ -67,6 +67,13 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage{graphicx,mathptmx,enumitem,xstring,amsmath,amssymb}
 \usepackage[a4paper,margin=15mm]{geometry}
+
+% patches for pandoc
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
 \setlist[enumerate]{font=\bf,itemsep=0pt}
 \setlist[enumerate,1]{label={(\alph*)}}
 \setlist[enumerate,2]{label={(\roman*)}}
